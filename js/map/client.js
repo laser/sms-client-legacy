@@ -134,9 +134,9 @@ Util.loadLanguageFile = function(_readyCallback, _lang, _optionalDomain) {
         url;
 
     resources = {
-        "EN_US": "/static/js/map/translations/EN_US.js",
-        "ES_LA": "/static/js/map/translations/ES_LA.js",
-        "FR_FR": "/static/js/map/translations/FR_FR.js"
+        "EN_US": "/static/i18n/EN_US.js",
+        "ES_LA": "/static/i18n/ES_LA.js",
+        "FR_FR": "/static/i18n/FR_FR.js"
     };
 
     _lang = _lang || "EN_US";
