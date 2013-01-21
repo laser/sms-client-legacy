@@ -87,7 +87,7 @@
          
                 handlePrivate = function() {
                     var app = new PrivateApp({
-                        "userId": this.params["user_id"],
+                        "accessTokenId": this.params["access_token_id"],
                         "defaultLanguage": this.params["default_language"],
                         "garminDomain": "http://simplemappingsystem.com/",
                         "garminKey": "f4b669c9789c7060cf9fbd2d7bb45ce3" 
@@ -101,7 +101,7 @@
                         "defaultLanguage": this.params.default_language,
                         "defaultGpsFormat": this.params.default_gps_format,
                         "defaultMeasurementSystem": this.params.default_measurement_system,
-                        "defaultGoogleMapType": this.params.default_google_map_type || "SATELLITE",
+                        "defaultGoogleMapType": this.params.default_google_map_type,
                         "projectId": this.params.project_id
                     });
 
@@ -110,7 +110,8 @@
          
                 Path.map("#/public/:default_language/:default_gps_format/:default_measurement_system/:project_id").to(handlePublic);
                 Path.map("#/public/:default_language/:default_gps_format/:default_measurement_system/:project_id/:default_google_map_type").to(handlePublic);
-                Path.map("#/private/:user_id/:default_language").to(handlePrivate);
+                Path.map("#/private/:access_token_id/:default_language").to(handlePrivate);
+                Path.map("#/private/:access_token_id/").to(handlePrivate);
                 Path.map("#/private").to(handlePrivate);
 
                 Path.root("#/private");

@@ -2342,7 +2342,7 @@ var LandingPagePrivateView = function(_container, _controller) {
             GOOGLE_MAP_TYPE_DEFAULT;
 
         GOOGLE_MAP_TYPE_DEFAULT = "SATELLITE";
-        controls_disabled = self.userId ? false : true;
+        controls_disabled = self.accessTokenId ? false : true;
 
         sb_projectSelect = new SelectBuilder("project_select", false)
             .label(sMap.get("button_select_project"))
@@ -4293,9 +4293,9 @@ var LandingPageController = function(_service, _modal, _container) {
     self.view = new LandingPagePrivateView(_container, self);
 
     self.start = function() {
-        self.view.userId = self.userId;
+        self.view.accessTokenId = self.accessTokenId;
 
-        if (!self.userId) {
+        if (!self.accessTokenId) {
             mc = new LoginModalController(_modal);
             mc.startWorkflow();
             self.view.render();
@@ -4319,7 +4319,7 @@ var LandingPageController = function(_service, _modal, _container) {
     };
 
     self.showUpdateSettings = function() {
-        _service.getUserSettings({"user_id": self.userId}, function(o) {
+        _service.getUserSettings({"access_token_id": self.accessTokenId}, function(o) {
             mc                = new UpdateUserSettingsModalController(_service, _modal);
             mc.userSettings   = o;
             self.userSettings = o;
@@ -4333,7 +4333,7 @@ var LandingPageController = function(_service, _modal, _container) {
         var d;
 
         d = {
-            "user_id": self.userId,
+            "access_token_id": self.accessTokenId,
             "project_id": self.projectId,
             "suppress_field_types": []
         };
@@ -4357,7 +4357,7 @@ var LandingPageController = function(_service, _modal, _container) {
         var d;
 
         d = {
-            "user_id": self.userId,
+            "access_token_id": self.accessTokenId,
             "project_id": self.projectId,
             "suppress_field_types": []
         };
@@ -4383,7 +4383,7 @@ var LandingPageController = function(_service, _modal, _container) {
         var d;
 
         d = {
-            "user_id": self.userId,
+            "access_token_id": self.accessTokenId,
             "project_id": self.projectId,
             "suppress_field_types": ["NUMBER", "IMAGE", "IMAGE_LIST"]
         };
@@ -4473,7 +4473,7 @@ var LandingPageController = function(_service, _modal, _container) {
                 controller.endWorkflow();
                 jQuery.cookie("default_language", o.default_language);
                 
-                window.location.href = "http://" + window.location.host + "/?" + Math.round(Math.random() * 100000).toString() + "#/private/" + self.userId + "/" + o.default_language;
+                window.location.href = "http://" + window.location.host + "/?" + Math.round(Math.random() * 100000).toString() + "#/private/" + self.accessTokenId + "/" + o.default_language;
             }, function() {
                 throw(o);
             });
@@ -4487,7 +4487,7 @@ var LandingPageController = function(_service, _modal, _container) {
 //  Service  //
 ///////////////
 
-var Service = function(userId, proxy) {
+var Service = function(accessTokenId, proxy) {
     var self;
 
     self = {};
@@ -4539,59 +4539,59 @@ var Service = function(userId, proxy) {
     }
 
     self.addPosition = function(data, s, f) {
-        proxy.add_position(userId, data["project_id"], data["position_properties"], dispenseHandler(s, f));
+        proxy.add_position(accessTokenId, data["project_id"], data["position_properties"], dispenseHandler(s, f));
     };
 
     self.addCustomPositionProperty = function(data, s, f) {
-        proxy.add_position_field(userId, data["project_id"], data["field_type"], data["name"], dispenseHandler(s, f));
+        proxy.add_position_field(accessTokenId, data["project_id"], data["field_type"], data["name"], dispenseHandler(s, f));
     };
 
     self.addPositions = function(data, s, f) {
-        proxy.add_positions(userId, data["project_id"], data["positions"], dispenseHandler(s, f));
+        proxy.add_positions(accessTokenId, data["project_id"], data["positions"], dispenseHandler(s, f));
     };
 
     self.addProject = function(data, s, f) {
-        proxy.add_project(userId, data["name"], dispenseHandler(s, f));
+        proxy.add_project(accessTokenId, data["name"], dispenseHandler(s, f));
     };
 
     self.addProjectAccess = function(data, s, f) {
-        proxy.add_project_access(userId, data["project_id"], data["access_type"], data["default_language"], data["default_measurement_system"], data["default_gps_format"], data["default_google_map_type"], data["message"], data["emails"], dispenseHandler(s, f));
+        proxy.add_project_access(accessTokenId, data["project_id"], data["access_type"], data["default_language"], data["default_measurement_system"], data["default_gps_format"], data["default_google_map_type"], data["message"], data["emails"], dispenseHandler(s, f));
     };
 
     self.deletePosition = function(data, s, f) {
-        proxy.delete_position(userId, data["position_id"], dispenseHandler(s, f));
+        proxy.delete_position(accessTokenId, data["position_id"], dispenseHandler(s, f));
     };
 
     self.deleteCustomPositionField = function(data, s, f) {
-        proxy.delete_position_field(userId, data["position_field_id"], dispenseHandler(s, f));
+        proxy.delete_position_field(accessTokenId, data["position_field_id"], dispenseHandler(s, f));
     };
 
     self.deleteProjectAccess = function(data, s, f) {
-        proxy.delete_project_access(userId, data["project_access_id"], dispenseHandler(s, f));
+        proxy.delete_project_access(accessTokenId, data["project_access_id"], dispenseHandler(s, f));
     };
 
     self.getCustomPositionFields = function(data, s, f) {
-        proxy.get_position_fields(userId, data["project_id"], true, data["suppress_field_types"], dispenseHandler(s, f));
+        proxy.get_position_fields(accessTokenId, data["project_id"], true, data["suppress_field_types"], dispenseHandler(s, f));
     };
 
     self.getPositionFields = function(data, s, f) {
-        proxy.get_position_fields(userId, data["project_id"], false, data["suppress_field_types"], dispenseHandler(s, f));
+        proxy.get_position_fields(accessTokenId, data["project_id"], false, data["suppress_field_types"], dispenseHandler(s, f));
     };
 
     self.getProjectAccess = function(data, s, f) {
-        proxy.get_project_access(userId, data["project_id"], dispenseHandler(s, f));
+        proxy.get_project_access(accessTokenId, data["project_id"], dispenseHandler(s, f));
     };
 
     self.getProjects = function(data, s, f) {
-        proxy.get_projects(userId, dispenseHandler(s, f));
+        proxy.get_projects(accessTokenId, dispenseHandler(s, f));
     };
 
     self.getUserSettings = function(data, s, f) {
-        proxy.get_user_settings(userId, dispenseHandler(s, f));
+        proxy.get_user_settings(accessTokenId, dispenseHandler(s, f));
     };
 
     self.searchPositions = function(data, s, f) {
-        proxy.search_positions(userId, data["project_id"], data["keyword"], dispenseHandler(s, f));
+        proxy.search_positions(accessTokenId, data["project_id"], data["keyword"], dispenseHandler(s, f));
     };
 
     self.updatePosition = function(data, s, f) {
@@ -4603,15 +4603,15 @@ var Service = function(userId, proxy) {
             }
         });
 
-        proxy.update_position(userId, data["position_id"], data["position_properties"], dispenseHandler(s, f));
+        proxy.update_position(accessTokenId, data["position_id"], data["position_properties"], dispenseHandler(s, f));
     };
 
     self.updatePositionFields = function(data, s, f) {
-        proxy.update_position_fields(userId, data["position_fields"], dispenseHandler(s, f));
+        proxy.update_position_fields(accessTokenId, data["position_fields"], dispenseHandler(s, f));
     };
 
     self.updateUserSettings = function(data, s, f) {
-        proxy.update_user_settings(userId, data["default_language"], data["default_gps_format"], data["default_measurement_system"], data["default_google_map_type"], dispenseHandler(s, f));
+        proxy.update_user_settings(accessTokenId, data["default_language"], data["default_gps_format"], data["default_measurement_system"], data["default_google_map_type"], dispenseHandler(s, f));
     };
 
     self.getDefaultLanguages = function(data, s, f) {
@@ -4779,16 +4779,16 @@ var PrivateApp = function(cfg) {
                     alert("Unable to load contract: " + err);
                 }
                 else {
-                    proxy = httpClient.proxy("SimpleMappingSystem");
+                    proxy = httpClient.proxy("ProjectService");
                     mask = new Mask(function() {
                         modal = new Modal(function(modal) {
                             el         = document.getElementById("page");
-                            service    = new Service(cfg.userId, proxy);
+                            service    = new Service(cfg.accessTokenId, proxy);
                             controller = new LandingPageController(service, modal, el);
 
                             service.garminDomain = cfg.garminDomain;
                             service.garminKey = cfg.garminKey;
-                            controller.userId = cfg.userId;
+                            controller.accessTokenId = cfg.accessTokenId;
                             controller.start();
                         }, null, null);
                     });
@@ -4820,7 +4820,7 @@ var PublicApp = function(cfg) {
                     alert("Unable to load contract: " + err);
                 }
                 else {
-                    proxy = httpClient.proxy("SimpleMappingSystem");
+                    proxy = httpClient.proxy("ProjectService");
 
                     mask = new Mask(function() {
                         modal = new Modal(function(modal) {
