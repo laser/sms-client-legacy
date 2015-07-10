@@ -4423,11 +4423,11 @@ var LandingPageController = function(_service, _modal, _container) {
     self.addProject = function(projectName) {
         _service.addProject({"name": projectName}, function(o) {
             self.view.projects.push({
-                project_id: o.project.project_id,
+                project_id: o.project_id,
                 access_type: "OWNER"
             });
-            self.view.addNewProjectToSelectAndHideInput(o.project.project_id, projectName);
-            self.selectProject(o.project.project_id, "OWNER");
+            self.view.addNewProjectToSelectAndHideInput(o.project_id, projectName);
+            self.selectProject(o.project_id, "OWNER");
         }, function(o) {
 
         });
