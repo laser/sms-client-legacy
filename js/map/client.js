@@ -1017,9 +1017,9 @@ var FormBuilder = function(classNames) {
             jQuery(uploadEl).uploadify({
                 'fileExt'   : '*.jpg;*.gif;*.png;*.bmp;*.tif',
                 'buttonText': sMap.get("button_select_file"),
-                'uploader'  : '../static/js/uploadify-2.0/uploadify.swf',
+                'uploader'  : '../static/client/js/uploadify-2.0/uploadify.swf',
                 'script'    : 'upload',
-                'cancelImg'  : '../static/js/uploadify-2.0/cancel.png',
+                'cancelImg'  : '../static/client/js/uploadify-2.0/cancel.png',
                 'auto'      : true,
                 'multi'     : false,
                 'queueID'   : queueEl.id,
@@ -1106,9 +1106,9 @@ var FormBuilder = function(classNames) {
 
             jQuery(uploadEl).uploadify({
                 'buttonText': sMap.get("button_select_file"),
-                'uploader'  : '../static/js/uploadify-2.0/uploadify.swf',
+                'uploader'  : '../static/client/js/uploadify-2.0/uploadify.swf',
                 'script'    : 'upload',
-                'cancelImg'  : '../static/js/uploadify-2.0/cancel.png',
+                'cancelImg'  : '../static/client/js/uploadify-2.0/cancel.png',
                 'auto'      : true,
                 'multi'     : true,
                 'queueID'   : queueEl.id,
@@ -2225,11 +2225,11 @@ var LandingPagePublicView = function(_container, _controller) {
             .html(self.buildRowsHtml(position))
             .find(".lightBox")
             .lightBox({
-                imageLoading:  '/static/img/jquery-lightbox-0/lightbox-ico-loading.gif',
-                imageBtnPrev:  '/static/img/jquery-lightbox-0/lightbox-btn-prev.gif',
-                imageBtnNext:  '/static/img/jquery-lightbox-0/lightbox-btn-next.gif',
-                imageBtnClose: '/static/img/jquery-lightbox-0/lightbox-btn-close.gif',
-                imageBlank:    '/static/img/jquery-lightbox-0/lightbox-blank.gif',
+                imageLoading:  '/static/client/img/jquery-lightbox-0/lightbox-ico-loading.gif',
+                imageBtnPrev:  '/static/client/img/jquery-lightbox-0/lightbox-btn-prev.gif',
+                imageBtnNext:  '/static/client/img/jquery-lightbox-0/lightbox-btn-next.gif',
+                imageBtnClose: '/static/client/img/jquery-lightbox-0/lightbox-btn-close.gif',
+                imageBlank:    '/static/client/img/jquery-lightbox-0/lightbox-blank.gif',
                 txtImage:      sMap.get("lightBox_image"),
                 txtOf:         sMap.get("lightBox_of"),
                 imageMaxHeight:    maxHeight,
@@ -3477,42 +3477,42 @@ var AddUpdatePositionCoreFieldsModalView = function(_modal, _controller) {
         + "<li><img src=\"http://google-maps-icons.googlecode.com/files/tram.png\"></li>"
         + "<li><img src=\"http://google-maps-icons.googlecode.com/files/accident.png\"></li>"
         + "<li><img src=\"http://google-maps-icons.googlecode.com/files/zoo.png\"></li>"
-        + "<li><img src=\"http://simplemappingsystem.com/static/img/dot-a.png\"></li>"
-        + "<li><img src=\"http://simplemappingsystem.com/static/img/dot-b.png\"></li>"
-        + "<li><img src=\"http://simplemappingsystem.com/static/img/dot-c.png\"></li>"
-        + "<li><img src=\"http://simplemappingsystem.com/static/img/dot-d.png\"></li>"
-        + "<li><img src=\"http://simplemappingsystem.com/static/img/dot-e.png\"></li>"
-        + "<li><img src=\"http://simplemappingsystem.com/static/img/dot-f.png\"></li>"
-        + "<li><img src=\"http://simplemappingsystem.com/static/img/dot-g.png\"></li>"
-        + "<li><img src=\"http://simplemappingsystem.com/static/img/dot-h.png\"></li>"
-        + "<li><img src=\"http://simplemappingsystem.com/static/img/dot-i.png\"></li>"
-        + "<li><img src=\"http://simplemappingsystem.com/static/img/dot-j.png\"></li>"
-        + "<li><img src=\"http://simplemappingsystem.com/static/img/dot-k.png\"></li>"
-        + "<li><img src=\"http://simplemappingsystem.com/static/img/dot-l.png\"></li>"
-        + "<li><img src=\"http://simplemappingsystem.com/static/img/dot-m.png\"></li>"
-        + "<li><img src=\"http://simplemappingsystem.com/static/img/dot-n.png\"></li>"
-        + "<li><img src=\"http://simplemappingsystem.com/static/img/dot-o.png\"></li>"
-        + "<li><img src=\"http://simplemappingsystem.com/static/img/dot-p.png\"></li>"
-        + "<li><img src=\"http://simplemappingsystem.com/static/img/dot-q.png\"></li>"
-        + "<li><img src=\"http://simplemappingsystem.com/static/img/dot-r.png\"></li>"
-        + "<li><img src=\"http://simplemappingsystem.com/static/img/dot-a-trans.png\"></li>"
-        + "<li><img src=\"http://simplemappingsystem.com/static/img/dot-b-trans.png\"></li>"
-        + "<li><img src=\"http://simplemappingsystem.com/static/img/dot-c-trans.png\"></li>"
-        + "<li><img src=\"http://simplemappingsystem.com/static/img/dot-d-trans.png\"></li>"
-        + "<li><img src=\"http://simplemappingsystem.com/static/img/dot-e-trans.png\"></li>"
-        + "<li><img src=\"http://simplemappingsystem.com/static/img/dot-f-trans.png\"></li>"
-        + "<li><img src=\"http://simplemappingsystem.com/static/img/dot-g-trans.png\"></li>"
-        + "<li><img src=\"http://simplemappingsystem.com/static/img/dot-h-trans.png\"></li>"
-        + "<li><img src=\"http://simplemappingsystem.com/static/img/dot-i-trans.png\"></li>"
-        + "<li><img src=\"http://simplemappingsystem.com/static/img/dot-j-trans.png\"></li>"
-        + "<li><img src=\"http://simplemappingsystem.com/static/img/dot-k-trans.png\"></li>"
-        + "<li><img src=\"http://simplemappingsystem.com/static/img/dot-l-trans.png\"></li>"
-        + "<li><img src=\"http://simplemappingsystem.com/static/img/dot-m-trans.png\"></li>"
-        + "<li><img src=\"http://simplemappingsystem.com/static/img/dot-n-trans.png\"></li>"
-        + "<li><img src=\"http://simplemappingsystem.com/static/img/dot-o-trans.png\"></li>"
-        + "<li><img src=\"http://simplemappingsystem.com/static/img/dot-p-trans.png\"></li>"
-        + "<li><img src=\"http://simplemappingsystem.com/static/img/dot-q-trans.png\"></li>"
-        + "<li><img src=\"http://simplemappingsystem.com/static/img/dot-r-trans.png\"></li>"
+        + "<li><img src=\"http://simplemappingsystem.com/static/client/img/dot-a.png\"></li>"
+        + "<li><img src=\"http://simplemappingsystem.com/static/client/img/dot-b.png\"></li>"
+        + "<li><img src=\"http://simplemappingsystem.com/static/client/img/dot-c.png\"></li>"
+        + "<li><img src=\"http://simplemappingsystem.com/static/client/img/dot-d.png\"></li>"
+        + "<li><img src=\"http://simplemappingsystem.com/static/client/img/dot-e.png\"></li>"
+        + "<li><img src=\"http://simplemappingsystem.com/static/client/img/dot-f.png\"></li>"
+        + "<li><img src=\"http://simplemappingsystem.com/static/client/img/dot-g.png\"></li>"
+        + "<li><img src=\"http://simplemappingsystem.com/static/client/img/dot-h.png\"></li>"
+        + "<li><img src=\"http://simplemappingsystem.com/static/client/img/dot-i.png\"></li>"
+        + "<li><img src=\"http://simplemappingsystem.com/static/client/img/dot-j.png\"></li>"
+        + "<li><img src=\"http://simplemappingsystem.com/static/client/img/dot-k.png\"></li>"
+        + "<li><img src=\"http://simplemappingsystem.com/static/client/img/dot-l.png\"></li>"
+        + "<li><img src=\"http://simplemappingsystem.com/static/client/img/dot-m.png\"></li>"
+        + "<li><img src=\"http://simplemappingsystem.com/static/client/img/dot-n.png\"></li>"
+        + "<li><img src=\"http://simplemappingsystem.com/static/client/img/dot-o.png\"></li>"
+        + "<li><img src=\"http://simplemappingsystem.com/static/client/img/dot-p.png\"></li>"
+        + "<li><img src=\"http://simplemappingsystem.com/static/client/img/dot-q.png\"></li>"
+        + "<li><img src=\"http://simplemappingsystem.com/static/client/img/dot-r.png\"></li>"
+        + "<li><img src=\"http://simplemappingsystem.com/static/client/img/dot-a-trans.png\"></li>"
+        + "<li><img src=\"http://simplemappingsystem.com/static/client/img/dot-b-trans.png\"></li>"
+        + "<li><img src=\"http://simplemappingsystem.com/static/client/img/dot-c-trans.png\"></li>"
+        + "<li><img src=\"http://simplemappingsystem.com/static/client/img/dot-d-trans.png\"></li>"
+        + "<li><img src=\"http://simplemappingsystem.com/static/client/img/dot-e-trans.png\"></li>"
+        + "<li><img src=\"http://simplemappingsystem.com/static/client/img/dot-f-trans.png\"></li>"
+        + "<li><img src=\"http://simplemappingsystem.com/static/client/img/dot-g-trans.png\"></li>"
+        + "<li><img src=\"http://simplemappingsystem.com/static/client/img/dot-h-trans.png\"></li>"
+        + "<li><img src=\"http://simplemappingsystem.com/static/client/img/dot-i-trans.png\"></li>"
+        + "<li><img src=\"http://simplemappingsystem.com/static/client/img/dot-j-trans.png\"></li>"
+        + "<li><img src=\"http://simplemappingsystem.com/static/client/img/dot-k-trans.png\"></li>"
+        + "<li><img src=\"http://simplemappingsystem.com/static/client/img/dot-l-trans.png\"></li>"
+        + "<li><img src=\"http://simplemappingsystem.com/static/client/img/dot-m-trans.png\"></li>"
+        + "<li><img src=\"http://simplemappingsystem.com/static/client/img/dot-n-trans.png\"></li>"
+        + "<li><img src=\"http://simplemappingsystem.com/static/client/img/dot-o-trans.png\"></li>"
+        + "<li><img src=\"http://simplemappingsystem.com/static/client/img/dot-p-trans.png\"></li>"
+        + "<li><img src=\"http://simplemappingsystem.com/static/client/img/dot-q-trans.png\"></li>"
+        + "<li><img src=\"http://simplemappingsystem.com/static/client/img/dot-r-trans.png\"></li>"
 
         + "</ul>");
 
