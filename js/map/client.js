@@ -1654,7 +1654,7 @@ var Mask = function(_readyCallback) {
         el;
 
     el = jQuery("<div class=\"loading\"></div>")
-            .html("<img src=\"/static/img/ajax-loader-bar.gif\" width=\"100%\">");
+            .html("<img src=\"/static/client/img/ajax-loader-bar.gif\" width=\"100%\">");
 
     d = jQuery(el).dialog({
         autoOpen: false,
